@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathGold - Matemática com Estilo</title>
+    <title>MathGold - Regra de Três: Direta e Inversa</title>
     <style>
         * {
             margin: 0;
@@ -30,25 +30,32 @@
             border-bottom: 2px solid #ffd700;
         }
 
+        .logo-container {
+            display: inline-block;
+        }
+
         .logo {
             font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffd700, #ffb347);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        .logo span {
-            background: linear-gradient(135deg, #ffffff, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo-frase {
+            font-size: 0.9rem;
+            color: #ffd700;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            font-style: italic;
+            opacity: 0.9;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
         }
 
         nav {
             float: right;
-            margin-top: 12px;
+            margin-top: 15px;
         }
 
         nav a {
@@ -73,7 +80,7 @@
         /* Main Container */
         .container {
             max-width: 1300px;
-            margin: 100px auto 50px;
+            margin: 120px auto 50px;
             padding: 0 25px;
         }
 
@@ -81,7 +88,7 @@
         .hero {
             text-align: center;
             color: #ffd700;
-            padding: 80px 20px;
+            padding: 60px 20px;
             background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.95) 100%);
             border-radius: 40px;
             margin-bottom: 50px;
@@ -91,8 +98,8 @@
         }
 
         .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
             font-weight: 800;
             background: linear-gradient(135deg, #ffd700, #ffffff);
@@ -101,185 +108,16 @@
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto 35px;
+            margin: 0 auto;
             opacity: 0.95;
             line-height: 1.6;
             color: #fff;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            color: #ffd700;
-            text-decoration: none;
-            border-radius: 60px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-            border: 2px solid #ffd700;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
-            background: linear-gradient(135deg, #1a1a1a, #000000);
-            color: #fff;
-        }
-
-        /* Calculator Section */
-        .calculator-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 100%);
-            border-radius: 50px;
-            padding: 60px;
-            margin: 70px 0;
-            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
-            border: 2px solid #ffd700;
-        }
-
-        .calculator-section h2 {
-            color: #ffd700;
-            font-size: 3rem;
-            margin-bottom: 50px;
-            text-align: center;
-            font-weight: 800;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
-
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .calculator-display {
-            background: #000;
-            border-radius: 30px;
-            padding: 30px;
-            border: 2px solid #ffd700;
-            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        #calc-display {
-            width: 100%;
-            height: 100px;
-            background: #111;
-            border: 2px solid #ffd700;
-            border-radius: 20px;
-            color: #ffd700;
-            font-size: 3rem;
-            text-align: right;
-            padding: 0 25px;
-            margin-bottom: 25px;
-            font-weight: bold;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .calc-buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .calc-btn {
-            background: linear-gradient(135deg, #1a1a1a, #000000);
-            border: 2px solid #ffd700;
-            color: #ffd700;
-            font-size: 1.8rem;
-            padding: 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
-        }
-
-        .calc-btn:hover {
-            background: linear-gradient(135deg, #ffd700, #ffb347);
-            color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        .calc-btn.operator {
-            background: linear-gradient(135deg, #ffd700, #ffb347);
-            color: #000;
-            font-size: 2rem;
-        }
-
-        .calc-btn.operator:hover {
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            color: #ffd700;
-        }
-
-        .calc-btn.equals {
-            background: linear-gradient(135deg, #ffd700, #ffaa00);
-            color: #000;
-            grid-column: span 2;
-            font-size: 2.2rem;
-        }
-
-        .calc-history {
-            background: #111;
-            border-radius: 30px;
-            padding: 30px;
-            border: 2px solid #ffd700;
-        }
-
-        .calc-history h3 {
-            color: #ffd700;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .history-list {
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-
-        .history-item {
-            background: linear-gradient(135deg, #1a1a1a, #222);
-            border-left: 5px solid #ffd700;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
-        }
-
-        .history-item strong {
-            color: #ffd700;
-            font-size: 1.3rem;
-        }
-
-        .clear-history {
-            background: #000;
-            color: #ffd700;
-            border: 2px solid #ffd700;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .clear-history:hover {
-            background: #ffd700;
-            color: #000;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
+        /* Regra de Três Section */
+        .regra-tres-section {
             margin: 70px 0;
         }
 
@@ -287,262 +125,295 @@
             text-align: center;
             color: #ffd700;
             font-size: 3rem;
-            margin: 60px 0 50px;
+            margin: 40px 0 50px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
             font-weight: 800;
         }
 
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+        .subtitle {
+            text-align: center;
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            font-style: italic;
+            opacity: 0.9;
         }
 
-        .image-card {
+        /* Cards de Explicação */
+        .explicacao-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .explicacao-card {
             background: linear-gradient(135deg, #111111, #1f1f1f);
+            border-radius: 40px;
+            padding: 40px;
+            border: 2px solid #ffd700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .explicacao-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.4);
+        }
+
+        .explicacao-card h3 {
+            color: #ffd700;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 15px;
+        }
+
+        .explicacao-card h4 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+        }
+
+        .explicacao-card p {
+            color: #fff;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .exemplo-box {
+            background: #000;
+            border-left: 5px solid #ffd700;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .exemplo-box strong {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .formula {
+            background: linear-gradient(135deg, #ffd70020, #ffb34720);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #ffd700;
+            border: 1px dashed #ffd700;
+            margin: 20px 0;
+        }
+
+        /* Vídeo Section */
+        .video-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-radius: 50px;
+            padding: 50px;
+            margin: 70px 0;
+            border: 2px solid #ffd700;
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .video-player {
+            background: #000;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
-            transition: all 0.4s ease;
-            cursor: pointer;
             border: 2px solid #ffd700;
-        }
-
-        .image-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.5);
-            border-color: #fff;
-        }
-
-        .image-placeholder {
-            height: 220px;
+            aspect-ratio: 16/9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            color: #ffd700;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .image-card h4 {
-            padding: 20px 20px 10px;
-            font-size: 1.5rem;
-            color: #ffd700;
-            font-weight: 700;
-        }
-
-        .image-card p {
-            padding: 0 20px 20px;
-            color: #fff;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Exercise Section */
-        .exercise-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            border-radius: 50px;
-            padding: 60px;
-            margin: 70px 0;
-            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
-            border: 2px solid #ffd700;
-        }
-
-        .exercise-section h2 {
-            color: #ffd700;
-            font-size: 3rem;
-            margin-bottom: 50px;
-            text-align: center;
-            font-weight: 800;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
-
-        .exercise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .exercise-card {
-            background: linear-gradient(135deg, #111111, #1f1f1f);
-            border-radius: 40px;
-            padding: 35px;
-            transition: all 0.4s ease;
-            border: 2px solid #ffd700;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-        }
-
-        .exercise-card:hover {
-            transform: translateY(-10px);
-            border-color: #fff;
+        .video-player:hover {
+            transform: scale(1.02);
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
         }
 
-        .exercise-icon {
-            font-size: 3.5rem;
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+        }
+
+        .play-icon {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+        }
+
+        .video-info {
+            padding: 30px;
+        }
+
+        .video-info h3 {
+            color: #ffd700;
+            font-size: 2.2rem;
             margin-bottom: 20px;
-            text-align: center;
-            color: #ffd700;
         }
 
-        .exercise-card h3 {
-            font-size: 2rem;
+        .video-info p {
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 1.8;
             margin-bottom: 25px;
-            color: #ffd700;
-            text-align: center;
-            font-weight: 700;
         }
 
-        .exercise-question {
+        .video-info ul {
+            list-style: none;
+        }
+
+        .video-info li {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .video-info li::before {
+            content: "▶";
+            margin-right: 10px;
+            color: #ffd700;
+            font-size: 1rem;
+        }
+
+        /* Exercícios Section */
+        .exercicios-regra-tres {
+            margin: 70px 0;
+        }
+
+        .exercicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .exercicio-card {
+            background: linear-gradient(135deg, #111111, #1f1f1f);
+            border-radius: 40px;
+            padding: 35px;
+            border: 2px solid #ffd700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .exercicio-tipo {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .exercicio-enunciado {
             background: #000;
             padding: 25px;
             border-radius: 20px;
-            margin: 25px 0;
-            font-size: 1.3rem;
-            text-align: center;
-            border: 1px solid #ffd700;
-            color: #fff;
+            margin: 20px 0;
+            border-left: 5px solid #ffd700;
         }
 
-        .options {
+        .exercicio-enunciado p {
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .exercicio-opcoes {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin: 25px 0;
         }
 
-        .option-btn {
+        .exercicio-btn {
             background: #111;
             border: 2px solid #ffd700;
-            padding: 18px;
+            color: #ffd700;
+            padding: 15px;
             border-radius: 15px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            color: #ffd700;
         }
 
-        .option-btn:hover {
+        .exercicio-btn:hover {
             background: linear-gradient(135deg, #ffd700, #ffb347);
             color: #000;
             transform: scale(1.05);
-            border-color: #fff;
         }
 
-        .option-btn.correct {
+        .exercicio-btn.correct {
             background: linear-gradient(135deg, #ffd700, #ffaa00);
             color: #000;
-            border-color: #fff;
         }
 
-        .option-btn.wrong {
+        .exercicio-btn.wrong {
             background: linear-gradient(135deg, #8b0000, #a52a2a);
             color: #fff;
-            border-color: #ffd700;
-            animation: shake 0.5s ease;
         }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
-
-        .exercise-feedback {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            text-align: center;
+        .exercicio-feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
             font-weight: 600;
+            text-align: center;
             display: none;
         }
 
-        .exercise-feedback.show {
+        .exercicio-feedback.show {
             display: block;
         }
 
-        .feedback-correct {
+        .feedback-correto {
             background: linear-gradient(135deg, #ffd700, #ffaa00);
             color: #000;
-            border-left: 5px solid #fff;
         }
 
-        .feedback-wrong {
+        .feedback-incorreto {
             background: linear-gradient(135deg, #8b0000, #a52a2a);
             color: #fff;
-            border-left: 5px solid #ffd700;
         }
 
-        /* Video Section */
-        .video-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 70px 0;
+        .resolucao {
+            margin-top: 25px;
+            padding: 20px;
+            background: #000;
+            border-radius: 15px;
+            border: 1px solid #ffd700;
         }
 
-        .video-card {
-            background: linear-gradient(135deg, #111111, #1f1f1f);
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
-            border: 2px solid #ffd700;
-        }
-
-        .video-thumb {
-            height: 200px;
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+        .resolucao p {
             color: #ffd700;
-        }
-
-        .video-card h4 {
-            padding: 20px 20px 10px;
-            font-size: 1.4rem;
-            color: #ffd700;
-        }
-
-        .video-card p {
-            padding: 0 20px 20px;
-            color: #fff;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin: 70px 0;
-            text-align: center;
-        }
-
-        .stat-item {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 30px;
-            border: 2px solid #ffd700;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #ffd700, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        .stat-label {
-            font-size: 1.2rem;
+        .resolucao-detalhada {
             color: #fff;
+            line-height: 1.8;
+            font-size: 1rem;
         }
 
         /* Footer */
@@ -611,11 +482,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .logo {
+            .logo-container {
                 display: block;
                 text-align: center;
                 margin-bottom: 15px;
-                font-size: 1.8rem;
             }
 
             nav {
@@ -630,56 +500,39 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .explicacao-grid,
+            .video-container {
+                grid-template-columns: 1fr;
             }
 
             .section-title {
                 font-size: 2.2rem;
             }
 
-            .exercise-section {
-                padding: 30px;
+            .video-player {
+                order: 1;
             }
 
-            .stats-section {
-                grid-template-columns: 1fr 1fr;
+            .video-info {
+                order: 2;
+                padding: 20px 0;
             }
-
-            .calculator-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #ffd700, #ffb347);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #ffb347, #ffd700);
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Math<span>Gold</span></div>
+        <div class="logo-container">
+            <div class="logo">MathGold</div>
+            <div class="logo-frase">✨ Aprendendo Regra de Três: Direta e Inversa ✨</div>
+        </div>
         <nav>
             <a href="#home">Início</a>
-            <a href="#calculadora">Calculadora</a>
-            <a href="#galeria">Galeria</a>
+            <a href="#explicacao">Explicação</a>
+            <a href="#video">Vídeo</a>
             <a href="#exercicios">Exercícios</a>
             <a href="#contato">Contato</a>
         </nav>
@@ -688,174 +541,225 @@
     <div class="container">
         <!-- Hero Section -->
         <section id="home" class="hero">
-            <h1>✨ MathGold: Matemática com Estilo ✨</h1>
-            <p>Descubra o poder da matemática com nossa calculadora avançada e exercícios interativos. Tudo isso com um design sofisticado em preto e dourado.</p>
-            <a href="#calculadora" class="btn">Experimentar Calculadora</a>
+            <h1>📐 Regra de Três: Direta e Inversa</h1>
+            <p>Domine uma das ferramentas mais importantes da matemática! Aprenda a resolver problemas de proporção de forma simples e rápida.</p>
         </section>
 
-        <!-- Calculator Section -->
-        <section id="calculadora" class="calculator-section">
-            <h2>🧮 Calculadora Avançada</h2>
-            <div class="calculator-grid">
-                <div class="calculator-display">
-                    <input type="text" id="calc-display" readonly value="0">
-                    <div class="calc-buttons">
-                        <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
-                        <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
-                        <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
-                        <button class="calc-btn operator" onclick="appendToDisplay('/')">÷</button>
-                        
-                        <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
-                        <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
-                        <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
-                        <button class="calc-btn operator" onclick="appendToDisplay('*')">×</button>
-                        
-                        <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
-                        <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
-                        <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
-                        <button class="calc-btn operator" onclick="appendToDisplay('-')">−</button>
-                        
-                        <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
-                        <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
-                        <button class="calc-btn" onclick="clearDisplay()">C</button>
-                        <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
-                        
-                        <button class="calc-btn operator" onclick="calculateSquareRoot()">√</button>
-                        <button class="calc-btn operator" onclick="calculatePower()">x²</button>
-                        <button class="calc-btn equals" onclick="calculateResult()">=</button>
-                        <button class="calc-btn operator" onclick="deleteLast()">⌫</button>
-                    </div>
-                </div>
-                <div class="calc-history">
-                    <h3>📜 Histórico</h3>
-                    <div id="history-list" class="history-list">
-                        <!-- Histórico será adicionado aqui via JavaScript -->
-                    </div>
-                    <button class="clear-history" onclick="clearHistory()">Limpar Histórico</button>
-                </div>
-            </div>
-        </section>
+        <!-- Explicação Section -->
+        <section id="explicacao" class="regra-tres-section">
+            <h2 class="section-title">📚 Entendendo a Regra de Três</h2>
+            <p class="subtitle">A regra de três é um método para encontrar um valor desconhecido em problemas que envolvem grandezas proporcionais</p>
+            
+            <div class="explicacao-grid">
+                <!-- Regra de Três Direta -->
+                <div class="explicacao-card">
+                    <h3>📈 Regra de Três Direta</h3>
+                    <p>Na regra de três direta, as grandezas aumentam ou diminuem na mesma proporção. Quando uma grandeza aumenta, a outra também aumenta.</p>
+                    
+                    <h4>✅ Características:</h4>
+                    <ul style="color: #fff; margin-left: 20px; line-height: 2;">
+                        <li>• Grandezas diretamente proporcionais</li>
+                        <li>• Multiplicação cruzada</li>
+                        <li>• Quanto mais ___ , mais ___</li>
+                    </ul>
 
-        <!-- Gallery Section -->
-        <section id="galeria">
-            <h2 class="section-title">📸 Galeria Dourada</h2>
-            <div class="image-grid">
-                <div class="image-card">
-                    <div class="image-placeholder">📐</div>
-                    <h4>Geometria Áurea</h4>
-                    <p>Descubra a proporção áurea e as formas geométricas perfeitas que encantam matemáticos há séculos.</p>
+                    <div class="exemplo-box">
+                        <strong>📌 Exemplo:</strong>
+                        <p style="margin-top: 10px;">Se 5 metros de tecido custam R$ 40,00, quanto custarão 8 metros?</p>
+                        <p style="color: #ffd700; margin-top: 15px;">5 m → R$ 40<br>8 m → x</p>
+                        <p style="color: #ffd700;">5x = 8 × 40<br>5x = 320<br>x = 64</p>
+                        <p style="color: #fff;">Resposta: R$ 64,00</p>
+                    </div>
+
+                    <div class="formula">
+                        a/b = c/x → a × x = b × c
+                    </div>
                 </div>
-                <div class="image-card">
-                    <div class="image-placeholder">📈</div>
-                    <h4>Gráficos Dourados</h4>
-                    <p>Visualize funções matemáticas criando curvas e padrões impressionantes no plano cartesiano.</p>
-                </div>
-                <div class="image-card">
-                    <div class="image-placeholder">🔢</div>
-                    <h4>Números de Ouro</h4>
-                    <p>Explore sequências como Fibonacci e descubra a magia por trás dos números.</p>
-                </div>
-                <div class="image-card">
-                    <div class="image-placeholder">⚜️</div>
-                    <h4>Símbolos Matemáticos</h4>
-                    <p>A beleza dos símbolos que representam conceitos matemáticos fundamentais.</p>
+
+                <!-- Regra de Três Inversa -->
+                <div class="explicacao-card">
+                    <h3>📉 Regra de Três Inversa</h3>
+                    <p>Na regra de três inversa, as grandezas são inversamente proporcionais. Quando uma grandeza aumenta, a outra diminui na mesma proporção.</p>
+                    
+                    <h4>✅ Características:</h4>
+                    <ul style="color: #fff; margin-left: 20px; line-height: 2;">
+                        <li>• Grandezas inversamente proporcionais</li>
+                        <li>• Multiplicação direta</li>
+                        <li>• Quanto mais ___ , menos ___</li>
+                    </ul>
+
+                    <div class="exemplo-box">
+                        <strong>📌 Exemplo:</strong>
+                        <p style="margin-top: 10px;">5 pedreiros constroem um muro em 12 dias. Em quantos dias 8 pedreiros construiriam o mesmo muro?</p>
+                        <p style="color: #ffd700; margin-top: 15px;">5 pedreiros → 12 dias<br>8 pedreiros → x</p>
+                        <p style="color: #ffd700;">5 × 12 = 8 × x<br>60 = 8x<br>x = 7,5</p>
+                        <p style="color: #fff;">Resposta: 7,5 dias</p>
+                    </div>
+
+                    <div class="formula">
+                        a × b = c × x
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Exercise Section -->
-        <section id="exercicios" class="exercise-section">
-            <h2>✏️ Exercícios Interativos</h2>
-            <div class="exercise-grid">
-                <!-- Exercise 1 -->
-                <div class="exercise-card" id="exercise1">
-                    <div class="exercise-icon">🧮</div>
-                    <h3>Álgebra</h3>
-                    <div class="exercise-question">
-                        Resolva: 2x + 8 = 20
+        <!-- Vídeo Section -->
+        <section id="video" class="video-section">
+            <h2 class="section-title">🎥 Vídeo Explicativo</h2>
+            <div class="video-container">
+                <div class="video-player" onclick="playVideo()">
+                    <div class="video-thumbnail">
+                        <span class="play-icon">▶</span>
+                        <span style="color: #ffd700; font-size: 1.2rem;">Clique para assistir</span>
+                        <span style="color: #fff; margin-top: 10px;">Regra de Três - Completo</span>
                     </div>
-                    <div class="options">
-                        <button class="option-btn" onclick="checkAnswer(this, 6, 'exercise1')">x = 6</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 5, 'exercise1')">x = 5</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 7, 'exercise1')">x = 7</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 8, 'exercise1')">x = 8</button>
-                    </div>
-                    <div id="feedback1" class="exercise-feedback"></div>
                 </div>
-
-                <!-- Exercise 2 -->
-                <div class="exercise-card" id="exercise2">
-                    <div class="exercise-icon">📊</div>
-                    <h3>Porcentagem</h3>
-                    <div class="exercise-question">
-                        25% de 400 é:
-                    </div>
-                    <div class="options">
-                        <button class="option-btn" onclick="checkAnswer(this, 50, 'exercise2')">50</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 75, 'exercise2')">75</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 100, 'exercise2')">100</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 125, 'exercise2')">125</button>
-                    </div>
-                    <div id="feedback2" class="exercise-feedback"></div>
-                </div>
-
-                <!-- Exercise 3 -->
-                <div class="exercise-card" id="exercise3">
-                    <div class="exercise-icon">📐</div>
-                    <h3>Geometria</h3>
-                    <div class="exercise-question">
-                        Área do quadrado com lado 8?
-                    </div>
-                    <div class="options">
-                        <button class="option-btn" onclick="checkAnswer(this, 64, 'exercise3')">64</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 56, 'exercise3')">56</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 48, 'exercise3')">48</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 72, 'exercise3')">72</button>
-                    </div>
-                    <div id="feedback3" class="exercise-feedback"></div>
+                <div class="video-info">
+                    <h3>📺 Regra de Três: Direta e Inversa</h3>
+                    <p>Neste vídeo, você vai aprender:</p>
+                    <ul>
+                        <li>✓ O que é regra de três</li>
+                        <li>✓ Como identificar se é direta ou inversa</li>
+                        <li>✓ Passo a passo para resolver problemas</li>
+                        <li>✓ Exemplos práticos do dia a dia</li>
+                        <li>✓ Dicas para não errar na prova</li>
+                    </ul>
+                    <p style="margin-top: 25px; color: #ffd700;">⏱️ Duração: 15 minutos</p>
                 </div>
             </div>
         </section>
 
-        <!-- Video Section -->
-        <section>
-            <h2 class="section-title">🎥 Vídeos Explicativos</h2>
-            <div class="video-section">
-                <div class="video-card">
-                    <div class="video-thumb">📺</div>
-                    <h4>A Proporção Áurea</h4>
-                    <p>Descubra o número de ouro e sua presença na arte e natureza.</p>
+        <!-- Exercícios Section -->
+        <section id="exercicios" class="exercicios-regra-tres">
+            <h2 class="section-title">✏️ Exercícios Práticos</h2>
+            <p class="subtitle">Teste seus conhecimentos com estes exercícios de regra de três</p>
+
+            <div class="exercicios-grid">
+                <!-- Exercício 1 - Direta -->
+                <div class="exercicio-card" id="ex1">
+                    <span class="exercicio-tipo">📈 Regra de Três Direta</span>
+                    <div class="exercicio-enunciado">
+                        <p><strong>1.</strong> Um carro percorre 240 km com 20 litros de combustível. Quantos litros serão necessários para percorrer 360 km?</p>
+                    </div>
+                    <div class="exercicio-opcoes">
+                        <button class="exercicio-btn" onclick="verificarExercicio(1, 30, this)">30 litros</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(1, 25, this)">25 litros</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(1, 35, this)">35 litros</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(1, 28, this)">28 litros</button>
+                    </div>
+                    <div id="feedback-ex1" class="exercicio-feedback"></div>
+                    <div id="resolucao-ex1" class="resolucao" style="display: none;">
+                        <p>📝 Resolução:</p>
+                        <div class="resolucao-detalhada">
+                            240 km → 20 L<br>
+                            360 km → x L<br><br>
+                            DIRETA: 240x = 360 × 20<br>
+                            240x = 7200<br>
+                            x = 7200 ÷ 240<br>
+                            <strong>x = 30 litros</strong>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-thumb">📺</div>
-                    <h4>Geometria Sagrada</h4>
-                    <p>Formas geométricas e seus significados místicos.</p>
+
+                <!-- Exercício 2 - Inversa -->
+                <div class="exercicio-card" id="ex2">
+                    <span class="exercicio-tipo">📉 Regra de Três Inversa</span>
+                    <div class="exercicio-enunciado">
+                        <p><strong>2.</strong> Para encher uma piscina, 3 torneiras levam 8 horas. Quanto tempo levariam 4 torneiras iguais?</p>
+                    </div>
+                    <div class="exercicio-opcoes">
+                        <button class="exercicio-btn" onclick="verificarExercicio(2, 6, this)">6 horas</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(2, 8, this)">8 horas</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(2, 4, this)">4 horas</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(2, 10, this)">10 horas</button>
+                    </div>
+                    <div id="feedback-ex2" class="exercicio-feedback"></div>
+                    <div id="resolucao-ex2" class="resolucao" style="display: none;">
+                        <p>📝 Resolução:</p>
+                        <div class="resolucao-detalhada">
+                            3 torneiras → 8 h<br>
+                            4 torneiras → x h<br><br>
+                            INVERSA: 3 × 8 = 4 × x<br>
+                            24 = 4x<br>
+                            x = 24 ÷ 4<br>
+                            <strong>x = 6 horas</strong>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-thumb">📺</div>
-                    <h4>Números Primos</h4>
-                    <p>Os átomos da matemática explicados de forma simples.</p>
+
+                <!-- Exercício 3 - Direta -->
+                <div class="exercicio-card" id="ex3">
+                    <span class="exercicio-tipo">📈 Regra de Três Direta</span>
+                    <div class="exercicio-enunciado">
+                        <p><strong>3.</strong> Se 8 metros de corda custam R$ 56,00, qual o preço de 15 metros?</p>
+                    </div>
+                    <div class="exercicio-opcoes">
+                        <button class="exercicio-btn" onclick="verificarExercicio(3, 105, this)">R$ 105,00</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(3, 95, this)">R$ 95,00</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(3, 110, this)">R$ 110,00</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(3, 100, this)">R$ 100,00</button>
+                    </div>
+                    <div id="feedback-ex3" class="exercicio-feedback"></div>
+                    <div id="resolucao-ex3" class="resolucao" style="display: none;">
+                        <p>📝 Resolução:</p>
+                        <div class="resolucao-detalhada">
+                            8 m → R$ 56<br>
+                            15 m → x<br><br>
+                            DIREITA: 8x = 15 × 56<br>
+                            8x = 840<br>
+                            x = 840 ÷ 8<br>
+                            <strong>x = R$ 105,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercício 4 - Inversa -->
+                <div class="exercicio-card" id="ex4">
+                    <span class="exercicio-tipo">📉 Regra de Três Inversa</span>
+                    <div class="exercicio-enunciado">
+                        <p><strong>4.</strong> Um trem a 60 km/h leva 5 horas para fazer um percurso. Se aumentar a velocidade para 75 km/h, quanto tempo levará?</p>
+                    </div>
+                    <div class="exercicio-opcoes">
+                        <button class="exercicio-btn" onclick="verificarExercicio(4, 4, this)">4 horas</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(4, 5, this)">5 horas</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(4, 3, this)">3 horas</button>
+                        <button class="exercicio-btn" onclick="verificarExercicio(4, 6, this)">6 horas</button>
+                    </div>
+                    <div id="feedback-ex4" class="exercicio-feedback"></div>
+                    <div id="resolucao-ex4" class="resolucao" style="display: none;">
+                        <p>📝 Resolução:</p>
+                        <div class="resolucao-detalhada">
+                            60 km/h → 5 h<br>
+                            75 km/h → x h<br><br>
+                            INVERSA: 60 × 5 = 75 × x<br>
+                            300 = 75x<br>
+                            x = 300 ÷ 75<br>
+                            <strong>x = 4 horas</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <div class="stats-section">
-            <div class="stat-item">
-                <div class="stat-number">1000+</div>
-                <div class="stat-label">Exercícios</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Imagens</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Vídeos</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">50k+</div>
-                <div class="stat-label">Alunos</div>
+        <!-- Dicas Section -->
+        <div style="background: linear-gradient(135deg, #111, #000); border-radius: 40px; padding: 50px; margin: 50px 0; border: 2px solid #ffd700;">
+            <h2 style="color: #ffd700; font-size: 2.5rem; margin-bottom: 30px; text-align: center;">💡 Dicas Importantes</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="text-align: center;">
+                    <span style="font-size: 3rem;">🔍</span>
+                    <h3 style="color: #ffd700; margin: 15px 0;">Identifique a relação</h3>
+                    <p style="color: #fff;">Primeiro, descubra se as grandezas são direta ou inversamente proporcionais</p>
+                </div>
+                <div style="text-align: center;">
+                    <span style="font-size: 3rem;">✖️</span>
+                    <h3 style="color: #ffd700; margin: 15px 0;">Multiplicação correta</h3>
+                    <p style="color: #fff;">Direta: multiplicação cruzada | Inversa: multiplicação direta</p>
+                </div>
+                <div style="text-align: center;">
+                    <span style="font-size: 3rem;">📊</span>
+                    <h3 style="color: #ffd700; margin: 15px 0;">Organize os dados</h3>
+                    <p style="color: #fff;">Coloque as grandezas em colunas para não se confundir</p>
+                </div>
             </div>
         </div>
     </div>
@@ -864,7 +768,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>MathGold</h3>
-                <p>A matemática nunca foi tão elegante. Aprenda com estilo e sofisticação.</p>
+                <p>Especialistas em Regra de Três e muito mais!</p>
                 <p>📧 contato@mathgold.com</p>
                 <p>📱 (11) 99999-9999</p>
             </div>
@@ -872,161 +776,66 @@
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
                     <li><a href="#home">Início</a></li>
-                    <li><a href="#calculadora">Calculadora</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#explicacao">Explicação</a></li>
+                    <li><a href="#video">Vídeo</a></li>
                     <li><a href="#exercicios">Exercícios</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Conteúdo</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Álgebra</a></li>
-                    <li><a href="#">Geometria</a></li>
-                    <li><a href="#">Trigonometria</a></li>
-                    <li><a href="#">Cálculo</a></li>
+                    <li><a href="#">Regra de Três Direta</a></li>
+                    <li><a href="#">Regra de Três Inversa</a></li>
+                    <li><a href="#">Exemplos Práticos</a></li>
+                    <li><a href="#">Lista de Exercícios</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 MathGold. Todos os direitos reservados.</p>
+            <p>&copy; 2025 MathGold - Dominando a Regra de Três. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Variáveis da calculadora
-        let display = document.getElementById('calc-display');
-        let historyList = document.getElementById('history-list');
-        let calculationHistory = [];
-
-        // Funções da calculadora
-        function appendToDisplay(value) {
-            if (display.value === '0') {
-                display.value = value;
-            } else {
-                display.value += value;
-            }
-        }
-
-        function clearDisplay() {
-            display.value = '0';
-        }
-
-        function deleteLast() {
-            display.value = display.value.slice(0, -1);
-            if (display.value === '') {
-                display.value = '0';
-            }
-        }
-
-        function calculateSquareRoot() {
-            let value = parseFloat(display.value);
-            if (!isNaN(value) && value >= 0) {
-                let result = Math.sqrt(value);
-                addToHistory(`√(${value}) = ${result.toFixed(4)}`);
-                display.value = result.toFixed(4);
-            } else {
-                display.value = 'Erro';
-            }
-        }
-
-        function calculatePower() {
-            let value = parseFloat(display.value);
-            if (!isNaN(value)) {
-                let result = Math.pow(value, 2);
-                addToHistory(`${value}² = ${result.toFixed(4)}`);
-                display.value = result.toFixed(4);
-            }
-        }
-
-        function calculateResult() {
-            try {
-                // Substituir × por * para avaliação
-                let expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
-                let result = eval(expression);
-                
-                if (!isFinite(result)) {
-                    display.value = 'Erro';
-                } else {
-                    addToHistory(`${display.value} = ${result}`);
-                    display.value = result;
-                }
-            } catch (error) {
-                display.value = 'Erro';
-            }
-        }
-
-        function addToHistory(calculation) {
-            calculationHistory.push(calculation);
-            updateHistoryDisplay();
-        }
-
-        function updateHistoryDisplay() {
-            historyList.innerHTML = '';
-            calculationHistory.slice().reverse().forEach(calc => {
-                let historyItem = document.createElement('div');
-                historyItem.className = 'history-item';
-                historyItem.innerHTML = `<strong>➤</strong> ${calc}`;
-                historyList.appendChild(historyItem);
-            });
-        }
-
-        function clearHistory() {
-            calculationHistory = [];
-            updateHistoryDisplay();
-        }
-
-        // Função para verificar respostas dos exercícios
-        function checkAnswer(button, correctAnswer, exerciseId) {
-            const exerciseCard = document.getElementById(exerciseId);
-            const options = exerciseCard.querySelectorAll('.option-btn');
-            const feedbackDiv = document.getElementById('feedback' + exerciseId.slice(-1));
+        function verificarExercicio(exercicioNum, respostaCorreta, botao) {
+            const exercicioId = `ex${exercicioNum}`;
+            const exercicioCard = document.getElementById(exercicioId);
+            const botoes = exercicioCard.querySelectorAll('.exercicio-btn');
+            const feedbackDiv = document.getElementById(`feedback-${exercicioId}`);
+            const resolucaoDiv = document.getElementById(`resolucao-${exercicioId}`);
             
-            // Desabilitar todos os botões após uma resposta
-            options.forEach(opt => {
-                opt.disabled = true;
+            // Desabilitar todos os botões
+            botoes.forEach(btn => {
+                btn.disabled = true;
             });
 
-            const buttonValue = parseFloat(button.textContent.split('=')[1] || button.textContent);
-            const isCorrect = Math.abs(buttonValue - correctAnswer) < 0.1;
+            const valorResposta = parseFloat(botao.textContent.split(' ')[0]);
+            const isCorrect = valorResposta === respostaCorreta;
 
-            // Marcar a opção escolhida
             if (isCorrect) {
-                button.classList.add('correct');
+                botao.classList.add('correct');
                 feedbackDiv.innerHTML = '✅ Parabéns! Resposta correta!';
-                feedbackDiv.className = 'exercise-feedback show feedback-correct';
+                feedbackDiv.className = 'exercicio-feedback show feedback-correto';
+                resolucaoDiv.style.display = 'block';
             } else {
-                button.classList.add('wrong');
-                feedbackDiv.innerHTML = '❌ Resposta incorreta. Tente novamente!';
-                feedbackDiv.className = 'exercise-feedback show feedback-wrong';
+                botao.classList.add('wrong');
+                feedbackDiv.innerHTML = '❌ Resposta incorreta. Veja a resolução abaixo!';
+                feedbackDiv.className = 'exercicio-feedback show feedback-incorreto';
+                resolucaoDiv.style.display = 'block';
                 
                 // Destacar a resposta correta
-                options.forEach(opt => {
-                    const optValue = parseFloat(opt.textContent.split('=')[1] || opt.textContent);
-                    if (Math.abs(optValue - correctAnswer) < 0.1) {
-                        opt.classList.add('correct');
+                botoes.forEach(btn => {
+                    const btnValor = parseFloat(btn.textContent.split(' ')[0]);
+                    if (btnValor === respostaCorreta) {
+                        btn.classList.add('correct');
                     }
                 });
             }
         }
 
-        // Suporte para teclado na calculadora
-        document.addEventListener('keydown', function(event) {
-            const key = event.key;
-            if (key >= '0' && key <= '9') {
-                appendToDisplay(key);
-            } else if (key === '.') {
-                appendToDisplay('.');
-            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
-                appendToDisplay(key);
-            } else if (key === 'Enter' || key === '=') {
-                event.preventDefault();
-                calculateResult();
-            } else if (key === 'Escape') {
-                clearDisplay();
-            } else if (key === 'Backspace') {
-                deleteLast();
-            }
-        });
+        function playVideo() {
+            alert('🎥 Vídeo: "Regra de Três - Direta e Inversa"\n\nEm um ambiente real, este link abriria um vídeo do YouTube ou similar com a explicação completa sobre regra de três.');
+        }
     </script>
 </body>
 </html>
