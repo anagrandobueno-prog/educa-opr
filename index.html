@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matemática Fácil - Aprenda Matemática de Forma Divertida</title>
+    <title>Mundo da Matemática - Aprenda com Exercícios e Imagens</title>
     <style>
         * {
             margin: 0;
@@ -13,301 +13,446 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             color: #333;
         }
 
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: inline-block;
         }
 
         .logo span {
-            color: #764ba2;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav {
             float: right;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         nav a {
-            color: #555;
+            color: #2c3e50;
             text-decoration: none;
             padding: 10px 20px;
             margin: 0 5px;
-            border-radius: 25px;
+            border-radius: 30px;
             transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         nav a:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 100px auto 50px;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
             color: white;
-            padding: 60px 0;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: 40px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 35px;
             opacity: 0.95;
+            line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #667eea;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 60px;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255,107,107,0.6);
         }
 
-        /* Cards Section */
+        /* Gallery Section */
+        .gallery-section {
+            margin: 70px 0;
+        }
+
         .section-title {
             text-align: center;
             color: white;
-            font-size: 2.5rem;
-            margin: 60px 0 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-icon {
             font-size: 3rem;
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 60px 0 50px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-            text-align: center;
-        }
-
-        .card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .card-link {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .card-link:hover {
-            color: #764ba2;
-        }
-
-        /* Interactive Section */
-        .interactive-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 50px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .interactive-section h2 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        .calculator {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .calc-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .calc-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            text-align: center;
-            border-left: 4px solid #667eea;
-        }
-
-        /* Topics Grid */
-        .topics-grid {
+        .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin: 40px 0;
         }
 
-        .topic-item {
+        .image-card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
             cursor: pointer;
         }
 
-        .topic-item:hover {
+        .image-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .image-placeholder {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover .image-placeholder {
             transform: scale(1.05);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .image-card h4 {
+            padding: 20px 20px 10px;
+            font-size: 1.5rem;
+            color: #1e3c72;
+            font-weight: 700;
+        }
+
+        .image-card p {
+            padding: 0 20px 20px;
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Exercise Section */
+        .exercise-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 40px;
+            padding: 60px;
+            margin: 70px 0;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .exercise-section h2 {
+            color: #1e3c72;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .exercise-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            border-radius: 30px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff6b6b;
+            box-shadow: 0 20px 40px rgba(255,107,107,0.3);
+        }
+
+        .exercise-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .exercise-card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #1e3c72;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .exercise-question {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.3rem;
+            text-align: center;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+        }
+
+        .option-btn:hover {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-color: transparent;
+            transform: scale(1.05);
+        }
+
+        .option-btn.correct {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border-color: transparent;
+        }
+
+        .option-btn.wrong {
+            background: linear-gradient(135deg, #dc3545, #ff6b6b);
+            color: white;
+            border-color: transparent;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .exercise-feedback {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .exercise-feedback.show {
+            display: block;
+        }
+
+        .feedback-correct {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border-left: 5px solid #28a745;
+        }
+
+        .feedback-wrong {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            border-left: 5px solid #dc3545;
+        }
+
+        /* Video Section */
+        .video-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 70px 0;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .video-thumb {
+            height: 200px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
             color: white;
         }
 
-        .topic-item:hover p {
+        .video-card h4 {
+            padding: 20px 20px 10px;
+            font-size: 1.4rem;
+            color: #1e3c72;
+        }
+
+        .video-card p {
+            padding: 0 20px 20px;
+            color: #666;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 70px 0;
+            text-align: center;
             color: white;
         }
 
-        .topic-item p {
-            color: #555;
-            margin-top: 10px;
-            font-weight: 500;
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
+            background: #0a1a2f;
             color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
+            padding: 60px 0 30px;
+            margin-top: 80px;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
         .footer-links {
-            margin: 20px 0;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
 
         .footer-links a:hover {
             opacity: 1;
+            color: #ff6b6b;
         }
 
-        /* Responsive Design */
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .logo {
                 display: block;
                 text-align: center;
                 margin-bottom: 15px;
+                font-size: 1.8rem;
             }
 
             nav {
@@ -317,12 +462,12 @@
 
             nav a {
                 display: inline-block;
-                padding: 8px 15px;
+                padding: 8px 12px;
                 font-size: 0.9rem;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
@@ -330,19 +475,27 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .exercise-section {
+                padding: 30px;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Matemática<span>Fácil</span></div>
+        <div class="logo">Mundo da <span>Matemática</span></div>
         <nav>
             <a href="#home">Início</a>
-            <a href="#topicos">Tópicos</a>
+            <a href="#galeria">Galeria</a>
             <a href="#exercicios">Exercícios</a>
-            <a href="#calculadora">Calculadora</a>
+            <a href="#videos">Vídeos</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
@@ -350,170 +503,275 @@
     <div class="container">
         <!-- Hero Section -->
         <section id="home" class="hero">
-            <h1>Aprenda Matemática de Forma Divertida</h1>
-            <p>Descubra como a matemática pode ser fascinante com nossas lições interativas, exercícios práticos e conteúdo adaptado para todos os níveis.</p>
-            <a href="#topicos" class="btn">Começar a Aprender</a>
+            <h1>🌟 Descubra o Fascinante Mundo da Matemática</h1>
+            <p>Explore conceitos matemáticos através de imagens incríveis, exercícios interativos e conteúdo multimídia desenvolvido para tornar o aprendizado mais visual e divertido!</p>
+            <a href="#exercicios" class="btn">Começar os Exercícios</a>
         </section>
 
-        <!-- Cards Section -->
-        <h2 class="section-title">O que oferecemos</h2>
-        <div class="cards">
-            <div class="card">
-                <div class="card-icon">📚</div>
-                <h3>Lições Interativas</h3>
-                <p>Aprenda com videoaulas, exemplos práticos e explicações passo a passo dos principais conceitos matemáticos.</p>
-                <a href="#" class="card-link">Ver lições →</a>
+        <!-- Gallery Section -->
+        <section id="galeria">
+            <h2 class="section-title">📸 Galeria Visual de Matemática</h2>
+            <div class="image-grid">
+                <div class="image-card">
+                    <div class="image-placeholder">📐</div>
+                    <h4>Geometria Sagrada</h4>
+                    <p>Descubra as formas geométricas perfeitas encontradas na natureza e na arte, desde flores até construções arquitetônicas.</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">📈</div>
+                    <h4>Gráficos e Funções</h4>
+                    <p>Visualize como as funções matemáticas criam curvas e padrões impressionantes no plano cartesiano.</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🔢</div>
+                    <h4>Sequências Numéricas</h4>
+                    <p>Explore padrões como Fibonacci e descubra como números criam sequências fascinantes.</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🧊</div>
+                    <h4>Sólidos Platônicos</h4>
+                    <p>Conheça os poliedros regulares e suas propriedades únicas que fascinam matemáticos há milênios.</p>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">✏️</div>
-                <h3>Exercícios Práticos</h3>
-                <p>Pratique com centenas de exercícios resolvidos e desafios que vão ajudar a fixar o conteúdo aprendido.</p>
-                <a href="#" class="card-link">Praticar →</a>
+        </section>
+
+        <!-- Exercise Section -->
+        <section id="exercicios" class="exercise-section">
+            <h2>✏️ Exercícios Interativos</h2>
+            <div class="exercise-grid">
+                <!-- Exercise 1 -->
+                <div class="exercise-card" id="exercise1">
+                    <div class="exercise-icon">🧮</div>
+                    <h3>Álgebra Básica</h3>
+                    <div class="exercise-question">
+                        Resolva: 3x + 7 = 22
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, 5, 'exercise1')">x = 5</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 8, 'exercise1')">x = 8</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 6, 'exercise1')">x = 6</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 7, 'exercise1')">x = 7</button>
+                    </div>
+                    <div id="feedback1" class="exercise-feedback"></div>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="exercise-card" id="exercise2">
+                    <div class="exercise-icon">📊</div>
+                    <h3>Porcentagem</h3>
+                    <div class="exercise-question">
+                        Quanto é 15% de 200?
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, 25, 'exercise2')">25</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 30, 'exercise2')">30</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 35, 'exercise2')">35</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 40, 'exercise2')">40</button>
+                    </div>
+                    <div id="feedback2" class="exercise-feedback"></div>
+                </div>
+
+                <!-- Exercise 3 -->
+                <div class="exercise-card" id="exercise3">
+                    <div class="exercise-icon">📐</div>
+                    <h3>Geometria</h3>
+                    <div class="exercise-question">
+                        Área do círculo com raio 5? (π=3.14)
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, 78.5, 'exercise3')">78.5</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 80.5, 'exercise3')">80.5</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 76.5, 'exercise3')">76.5</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 75.5, 'exercise3')">75.5</button>
+                    </div>
+                    <div id="feedback3" class="exercise-feedback"></div>
+                </div>
+
+                <!-- Exercise 4 -->
+                <div class="exercise-card" id="exercise4">
+                    <div class="exercise-icon">⚡</div>
+                    <h3>Potênciação</h3>
+                    <div class="exercise-question">
+                        2⁵ é igual a:
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, 16, 'exercise4')">16</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 25, 'exercise4')">25</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 32, 'exercise4')">32</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 64, 'exercise4')">64</button>
+                    </div>
+                    <div id="feedback4" class="exercise-feedback"></div>
+                </div>
+
+                <!-- Exercise 5 -->
+                <div class="exercise-card" id="exercise5">
+                    <div class="exercise-icon">🧩</div>
+                    <h3>MMC</h3>
+                    <div class="exercise-question">
+                        MMC entre 12 e 18?
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, 24, 'exercise5')">24</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 30, 'exercise5')">30</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 36, 'exercise5')">36</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 42, 'exercise5')">42</button>
+                    </div>
+                    <div id="feedback5" class="exercise-feedback"></div>
+                </div>
+
+                <!-- Exercise 6 -->
+                <div class="exercise-card" id="exercise6">
+                    <div class="exercise-icon">📏</div>
+                    <h3>Teorema de Pitágoras</h3>
+                    <div class="exercise-question">
+                        Hipotenusa com catetos 3 e 4?
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, 5, 'exercise6')">5</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 6, 'exercise6')">6</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 7, 'exercise6')">7</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 8, 'exercise6')">8</button>
+                    </div>
+                    <div id="feedback6" class="exercise-feedback"></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">🧮</div>
-                <h3>Ferramentas Online</h3>
-                <p>Utilize nossas calculadoras e ferramentas interativas para resolver problemas e visualizar conceitos.</p>
-                <a href="#" class="card-link">Experimentar →</a>
+        </section>
+
+        <!-- Video Section -->
+        <section id="videos">
+            <h2 class="section-title">🎥 Vídeos Explicativos</h2>
+            <div class="video-section">
+                <div class="video-card">
+                    <div class="video-thumb">📺</div>
+                    <h4>Geometria na Prática</h4>
+                    <p>Aprenda geometria com animações 3D e exemplos do cotidiano.</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb">📺</div>
+                    <h4>Álgebra Descomplicada</h4>
+                    <p>Equações e funções explicadas de forma simples e visual.</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb">📺</div>
+                    <h4>Matemática na Natureza</h4>
+                    <p>Descubra padrões matemáticos em flores, conchas e paisagens.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Exercícios</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Imagens</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Vídeos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10k+</div>
+                <div class="stat-label">Alunos</div>
             </div>
         </div>
 
-        <!-- Topics Section -->
-        <section id="topicos">
-            <h2 class="section-title">Principais Tópicos</h2>
-            <div class="topics-grid">
-                <div class="topic-item">
-                    <span style="font-size: 2.5rem;">➕</span>
-                    <p>Aritmética</p>
-                </div>
-                <div class="topic-item">
-                    <span style="font-size: 2.5rem;">✖️</span>
-                    <p>Álgebra</p>
-                </div>
-                <div class="topic-item">
-                    <span style="font-size: 2.5rem;">📐</span>
-                    <p>Geometria</p>
-                </div>
-                <div class="topic-item">
-                    <span style="font-size: 2.5rem;">📊</span>
-                    <p>Estatística</p>
-                </div>
-                <div class="topic-item">
-                    <span style="font-size: 2.5rem;">📈</span>
-                    <p>Funções</p>
-                </div>
-                <div class="topic-item">
-                    <span style="font-size: 2.5rem;">🔢</span>
-                    <p>Trigonometria</p>
-                </div>
+        <!-- More Images Section -->
+        <h2 class="section-title">🖼️ Matemática no Mundo</h2>
+        <div class="image-grid">
+            <div class="image-card">
+                <div class="image-placeholder">🏛️</div>
+                <h4>Arquitetura</h4>
+                <p>A matemática presente nas grandes construções e monumentos históricos.</p>
             </div>
-        </section>
-
-        <!-- Interactive Calculator Section -->
-        <section id="calculadora" class="interactive-section">
-            <h2>Calculadora Interativa</h2>
-            <div class="calculator">
-                <div class="input-group">
-                    <label for="num1">Primeiro número:</label>
-                    <input type="number" id="num1" placeholder="Digite um número">
-                </div>
-                <div class="input-group">
-                    <label for="num2">Segundo número:</label>
-                    <input type="number" id="num2" placeholder="Digite outro número">
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;">
-                    <button class="calc-btn" onclick="calcular('soma')" style="padding: 10px;">+</button>
-                    <button class="calc-btn" onclick="calcular('subtracao')" style="padding: 10px;">-</button>
-                    <button class="calc-btn" onclick="calcular('multiplicacao')" style="padding: 10px;">×</button>
-                    <button class="calc-btn" onclick="calcular('divisao')" style="padding: 10px;">÷</button>
-                </div>
-                <div id="resultado" class="result">
-                    Aguardando cálculo...
-                </div>
+            <div class="image-card">
+                <div class="image-placeholder">🌿</div>
+                <h4>Natureza</h4>
+                <p>Padrões fractais, simetria e proporção áurea nas plantas e animais.</p>
             </div>
-        </section>
-
-        <!-- Featured Video Section -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 50px 0;">
-            <div class="card" style="text-align: center;">
-                <span style="font-size: 4rem;">🎥</span>
-                <h3>Vídeo do Dia</h3>
-                <p>Como resolver equações do segundo grau de forma simples e rápida.</p>
-                <div style="background: #f0f0f0; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px 0;">
-                    <span style="font-size: 3rem;">▶️</span>
-                </div>
-                <a href="#" class="card-link">Assistir agora →</a>
+            <div class="image-card">
+                <div class="image-placeholder">🎨</div>
+                <h4>Arte</h4>
+                <p>Como artistas usam conceitos matemáticos em suas obras.</p>
             </div>
-            <div class="card" style="text-align: center;">
-                <span style="font-size: 4rem;">📝</span>
-                <h3>Desafio do Dia</h3>
-                <p>Teste seus conhecimentos com nosso desafio diário de matemática.</p>
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px; margin: 20px 0;">
-                    <p style="color: white; font-size: 1.5rem;">Qual é a raiz quadrada de 144?</p>
-                </div>
-                <a href="#" class="card-link">Responder desafio →</a>
+            <div class="image-card">
+                <div class="image-placeholder">🌌</div>
+                <h4>Universo</h4>
+                <p>A matemática que explica os movimentos dos planetas e estrelas.</p>
             </div>
         </div>
     </div>
 
-    <footer>
+    <footer id="contato">
         <div class="footer-content">
-            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Matemática Fácil</h3>
-            <p>Tornando a matemática acessível para todos</p>
-            <div class="footer-links">
-                <a href="#home">Início</a>
-                <a href="#topicos">Tópicos</a>
-                <a href="#exercicios">Exercícios</a>
-                <a href="#calculadora">Calculadora</a>
-                <a href="#contato">Contato</a>
+            <div class="footer-section">
+                <h3>Mundo da Matemática</h3>
+                <p>Tornando a matemática acessível, visual e divertida para todos os estudantes.</p>
+                <p>📧 contato@mundomatematica.com</p>
+                <p>📱 (11) 99999-9999</p>
             </div>
-            <p style="margin-top: 30px; opacity: 0.7;">&copy; 2024 Matemática Fácil. Todos os direitos reservados.</p>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#exercicios">Exercícios</a></li>
+                    <li><a href="#videos">Vídeos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tópicos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Álgebra</a></li>
+                    <li><a href="#">Geometria</a></li>
+                    <li><a href="#">Trigonometria</a></li>
+                    <li><a href="#">Cálculo</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Mundo da Matemática. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        function calcular(operacao) {
-            const num1 = parseFloat(document.getElementById('num1').value);
-            const num2 = parseFloat(document.getElementById('num2').value);
-            const resultadoDiv = document.getElementById('resultado');
+        function checkAnswer(button, correctAnswer, exerciseId) {
+            const exerciseCard = document.getElementById(exerciseId);
+            const options = exerciseCard.querySelectorAll('.option-btn');
+            const feedbackDiv = document.getElementById('feedback' + exerciseId.slice(-1));
             
-            if (isNaN(num1) || isNaN(num2)) {
-                resultadoDiv.innerHTML = 'Por favor, digite ambos os números!';
-                resultadoDiv.style.borderLeftColor = '#dc3545';
-                return;
-            }
+            // Desabilitar todos os botões após uma resposta
+            options.forEach(opt => {
+                opt.disabled = true;
+            });
 
-            let resultado;
-            let simbolo;
+            const buttonValue = parseFloat(button.textContent.split('=')[1] || button.textContent);
+            const isCorrect = Math.abs(buttonValue - correctAnswer) < 0.1;
 
-            switch(operacao) {
-                case 'soma':
-                    resultado = num1 + num2;
-                    simbolo = '+';
-                    break;
-                case 'subtracao':
-                    resultado = num1 - num2;
-                    simbolo = '-';
-                    break;
-                case 'multiplicacao':
-                    resultado = num1 * num2;
-                    simbolo = '×';
-                    break;
-                case 'divisao':
-                    if (num2 === 0) {
-                        resultadoDiv.innerHTML = 'Erro: divisão por zero não é permitida!';
-                        resultadoDiv.style.borderLeftColor = '#dc3545';
-                        return;
+            // Marcar a opção escolhida
+            if (isCorrect) {
+                button.classList.add('correct');
+                feedbackDiv.innerHTML = '✅ Parabéns! Resposta correta!';
+                feedbackDiv.className = 'exercise-feedback show feedback-correct';
+            } else {
+                button.classList.add('wrong');
+                feedbackDiv.innerHTML = '❌ Resposta incorreta. Tente novamente mais tarde!';
+                feedbackDiv.className = 'exercise-feedback show feedback-wrong';
+                
+                // Destacar a resposta correta
+                options.forEach(opt => {
+                    const optValue = parseFloat(opt.textContent.split('=')[1] || opt.textContent);
+                    if (Math.abs(optValue - correctAnswer) < 0.1) {
+                        opt.classList.add('correct');
                     }
-                    resultado = num1 / num2;
-                    simbolo = '÷';
-                    break;
-                default:
-                    return;
+                });
             }
 
-            resultadoDiv.innerHTML = `${num1} ${simbolo} ${num2} = <strong>${resultado.toFixed(2)}</strong>`;
-            resultadoDiv.style.borderLeftColor = '#28a745';
+            // Scroll suave até o feedback
+            feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     </script>
 </body>
